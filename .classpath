@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="lib" path="E:/workspace/Virtual_Judge/vjudge_lib/commons-codec-1.6.jar"/>
+	<classpathentry kind="lib" path="E:/workspace/Virtual_Judge/vjudge_lib/commons-httpclient.jar"/>
+	<classpathentry kind="lib" path="E:/workspace/Virtual_Judge/vjudge_lib/commons-io-2.4.jar"/>
+	<classpathentry kind="lib" path="E:/workspace/Virtual_Judge/vjudge_lib/commons-io-2.4-javadoc.jar"/>
+	<classpathentry kind="lib" path="E:/workspace/Virtual_Judge/vjudge_lib/commons-io-2.4-sources.jar"/>
+	<classpathentry kind="lib" path="E:/workspace/Virtual_Judge/vjudge_lib/commons-io-2.4-tests.jar"/>
+	<classpathentry kind="lib" path="E:/workspace/Virtual_Judge/vjudge_lib/commons-io-2.4-test-sources.jar"/>
+	<classpathentry kind="lib" path="E:/workspace/Virtual_Judge/vjudge_lib/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="E:/workspace/Virtual_Judge/vjudge_lib/fluent-hc-4.2.5.jar"/>
+	<classpathentry kind="lib" path="E:/workspace/Virtual_Judge/vjudge_lib/httpclient-4.2.5.jar"/>
+	<classpathentry kind="lib" path="E:/workspace/Virtual_Judge/vjudge_lib/httpclient-cache-4.2.5.jar"/>
+	<classpathentry kind="lib" path="E:/workspace/Virtual_Judge/vjudge_lib/httpcore-4.2.4.jar"/>
+	<classpathentry kind="lib" path="E:/workspace/Virtual_Judge/vjudge_lib/httpmime-4.2.5.jar"/>
+	<classpathentry kind="lib" path="E:/workspace/Virtual_Judge/vjudge_lib/mysql-connector-java-5.1.26-bin.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
