@@ -26,8 +26,10 @@ public class Main {
 		String sql = "SELECT * FROM solution where result<2 and source_oj>0 limit 0,3";
 		Connect_to_mysql mysql = new Connect_to_mysql();
 		
+		Submitter.HDU_Submitter.mysql=mysql;//use together
+		
 		mysql.update("UPDATE solution SET result=1 where result=3 and source_oj>0");
-
+		
 		ResultSet result;
 		
 		//new POJ_Submitter().start();

@@ -221,6 +221,7 @@ public class HDU_Submitter extends Submitter{
 		while(true) {
 			synchronized (using) {
 				for (int i = begIdx, j; i < begIdx + length; i++) {
+					
 					j = i % length;
 					if (!using[j]) {
 						using[j] = true;

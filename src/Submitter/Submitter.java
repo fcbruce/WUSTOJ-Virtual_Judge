@@ -19,7 +19,7 @@ public abstract class Submitter extends Thread {
 	public Submission submission;
 	public abstract void work() throws SQLException;
 	public abstract void waitForUnfreeze();
-	static public Connect_to_mysql mysql = new Connect_to_mysql();
+	static public Connect_to_mysql mysql;
 	
 	public void run()
 	{

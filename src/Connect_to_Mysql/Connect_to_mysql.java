@@ -14,8 +14,8 @@ import Submitter.Submission;
 public class Connect_to_mysql {
 	private String driver = "com.mysql.jdbc.Driver";
 	private String url = "jdbc:mysql://127.0.0.1:3306/wustacm";
-	private String user = "XXX";
-	private String password = "XXX";
+	private String user = "root";
+	private String password = "dengran1387";
 	private Connection conn;
 	public Statement statement;
 	
