@@ -124,7 +124,7 @@ public class UVA_Submitter extends Submitter{
 	private void login(String username, String password) throws ClientProtocolException, IOException{
 		try{
 			
-			get = new HttpGet("http://uva.onlinejudge.org/");
+			get = new HttpGet("https://uva.onlinejudge.org/");
 			response = client.execute(get);
 			entity = response.getEntity();
 			html = EntityUtils.toString(entity);
@@ -134,7 +134,7 @@ public class UVA_Submitter extends Submitter{
 			Matcher m = p.matcher(html);
 			m.find();
 			
-			post = new HttpPost("http://uva.onlinejudge.org/index.php?option=com_comprofiler&task=login");
+			post = new HttpPost("https://uva.onlinejudge.org/index.php?option=com_comprofiler&task=login");
 			
 			post.setHeader("Content-Type", "application/x-www-form-urlencoded");
 			
@@ -175,7 +175,7 @@ public class UVA_Submitter extends Submitter{
 	
 	private void getAdditionalInfo(String runId) throws HttpException, IOException {
 		try{
-			get = new HttpGet("http://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=9&page=show_compilationerror&submission="+runId);
+			get = new HttpGet("https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=9&page=show_compilationerror&submission="+runId);
 			
 			response = client.execute(get);
 			entity = response.getEntity();
@@ -200,13 +200,13 @@ public class UVA_Submitter extends Submitter{
 		
 		while(new Date().getTime() - cur < 600000){
 			try{
-				get = new HttpGet("http://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=9");
+				get = new HttpGet("https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=9");
 				response = client.execute(get);
 				entity = response.getEntity();
 				html = EntityUtils.toString(entity);
 			}catch(TruncatedChunkException e){
 				sleep(200);
-				get = new HttpGet("http://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=9");
+				get = new HttpGet("https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=9");
 				response = client.execute(get);
 				entity = response.getEntity();
 				html = EntityUtils.toString(entity);
@@ -284,17 +284,22 @@ public class UVA_Submitter extends Submitter{
 	
 	private void submit() throws IOException, SQLException{
 		try{
-			post = new HttpPost("http://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=save_submission");
+			post = new HttpPost("https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=save_submission");
 			
 			MultipartEntity mutiEntity = new MultipartEntity();
+			mutiEntity.addPart("problemid",new StringBody("", Charset.forName("utf-8")));
+			mutiEntity.addPart("category",new StringBody("", Charset.forName("utf-8")));
 			mutiEntity.addPart("localid",new StringBody(submission.getPid(), Charset.forName("utf-8")));
 			mutiEntity.addPart("language",new StringBody(submission.getLanguage(), Charset.forName("utf-8")));
 			mutiEntity.addPart("code",new StringBody(submission.getSource(), Charset.forName("utf-8")));
+			mutiEntity.addPart("codeupl",new StringBody("", Charset.forName("utf-8")));
 			 
 			post.setEntity(mutiEntity);
 			response = client.execute(post);
 			HttpEntity httpEntity =  response.getEntity();
 			String content = EntityUtils.toString(httpEntity);
+			
+			System.out.println(response.getStatusLine().getStatusCode());
 			
 			if(response.getStatusLine().getStatusCode() != 301){
 				throw new RuntimeException();
@@ -312,7 +317,7 @@ public class UVA_Submitter extends Submitter{
 		Pattern p = Pattern.compile("<td>(\\d*)</td>");
 		System.out.println("getting maxrunid");
 		try{
-			get = new HttpGet("http://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=19");
+			get = new HttpGet("https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=19");
 			response = client.execute(get);
 			entity = response.getEntity();
 			html = EntityUtils.toString(entity);
