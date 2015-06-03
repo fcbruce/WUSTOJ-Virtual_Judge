@@ -292,7 +292,7 @@ public class HDU_Submitter extends Submitter{
 	@Override
 	public void waitForUnfreeze() {
 		try {
-			Thread.sleep(5000);
+			Thread.sleep(100);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
