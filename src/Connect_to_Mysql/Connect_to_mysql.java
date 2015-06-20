@@ -1,13 +1,11 @@
 package Connect_to_Mysql;
 
 import java.sql.Connection;
-
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
 
 import Submitter.Submission;
 
@@ -28,6 +26,15 @@ public class Connect_to_mysql {
 		}catch(Exception e){
 			System.out.println("There are some errors in the connecting");
 			e.printStackTrace();
+			System.out.println("it will reconnect after 60 seconds");
+			try {
+				Thread.sleep(60000);
+			} catch (InterruptedException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
+			ReConnect_to_mysql();
 		}
 	}
 	
