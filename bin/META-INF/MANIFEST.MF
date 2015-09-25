@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Created-By: 1.7.0_79 (Oracle Corporation)
+Class-Path: . vjudge_lib/commons-io-2.4-javadoc.jar vjudge_lib/commons-httpclient.jar vjudge_lib/commons-io-2.4.jar vjudge_lib/httpclient-cache-4.2.5.jar vjudge_lib/commons-io-2.4-sources.jar vjudge_lib/commons-io-2.4-tests.jar vjudge_lib/httpclient-4.2.5.jar vjudge_lib/fluent-hc-4.2.5.jar vjudge_lib/commons-io-2.4-test-sources.jar vjudge_lib/httpcore-4.2.4.jar vjudge_lib/mysql-connector-java-5.1.26-bin.jar vjudge_lib/commons-codec-1.6.jar vjudge_lib/commons-logging-1.1.1.jar vjudge_lib/httpmime-4.2.5.jar
+Main-Class: Main
+

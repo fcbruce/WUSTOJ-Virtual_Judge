@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.httpclient.DefaultHttpMethodRetryHandler;
 import org.apache.commons.httpclient.Header;
 import org.apache.commons.httpclient.HttpClient;
@@ -175,7 +176,8 @@ public class POJ_Submitter extends Submitter{
 		postMethod.addParameter("language", submission.getLanguage());
 //		postMethod.addParameter("language", changeLanguage(submission.getLanguage()));
 		postMethod.addParameter("problem_id", submission.getPid());
-		postMethod.addParameter("source", submission.getSource());
+		postMethod.addParameter("source", Base64.encodeBase64String(submission.getSource().getBytes("UTF-8")));
+    //postMethod.addParameter("source", submission.getSource());
 		postMethod.addParameter("submit", "Submit");
 		postMethod.addParameter("encoded", "1");
 		postMethod.getParams().setParameter(HttpMethodParams.RETRY_HANDLER, new DefaultHttpMethodRetryHandler());
