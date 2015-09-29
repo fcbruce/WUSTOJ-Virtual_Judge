@@ -248,12 +248,14 @@ public class ACdream_Submitter extends Submitter{
 		try{
 			post = new HttpPost("http://acdream.info/submit");
 			
-			MultipartEntity mutiEntity = new MultipartEntity();
-			mutiEntity.addPart("pid",new StringBody(submission.getPid(), Charset.forName("utf-8")));
-			mutiEntity.addPart("lang",new StringBody(submission.getLanguage(), Charset.forName("utf-8")));
-			mutiEntity.addPart("code",new StringBody(submission.getSource(), Charset.forName("utf-8")));
-			 
-			post.setEntity(mutiEntity);
+			post.setHeader("charset", "UTF-8");
+			
+			List<NameValuePair> nvps = new ArrayList<NameValuePair> ();
+			nvps.add(new BasicNameValuePair("pid",submission.getPid()));
+			nvps.add(new BasicNameValuePair("lang",submission.getLanguage()));
+			nvps.add(new BasicNameValuePair("code",submission.getSource()));
+	
+			post.setEntity(new UrlEncodedFormEntity(nvps,Charset.forName("UTF-8")));
 			response = client.execute(post);
 			HttpEntity httpEntity =  response.getEntity();
 			String content = EntityUtils.toString(httpEntity);
